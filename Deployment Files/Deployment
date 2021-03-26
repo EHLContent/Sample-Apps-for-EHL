@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: edison-python-deployment
+  labels:
+    app: edison
+spec:
+  selector:
+    matchLabels:
+      app: edison
+  template:
+    metadata:
+      labels:
+        app: edison
+    spec:
+      containers:
+      - name: edison
+        image: geehl/edison-python:v1.0.0
+        ports:
+        - containerPort: 80
